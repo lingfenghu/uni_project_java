@@ -1,0 +1,50 @@
+@charset "UTF-8";
+html{
+	overflow: hidden;
+}
+#content{
+	width: 80%;
+	height: 80%;
+	margin: 5% 10% 0px;
+}
+#rule-content{
+	width: 60%;
+	height: 320px;
+}
+#page-inner{
+	text-align: center;
+}
+#content_header{
+	position: relative;
+	display: inline-block;
+	width: 500px;
+	height: 40px;
+	left: 30%;
+}
+#content_header a{
+	position: relative;
+	left: 45%;
+	bottom: 63%;
+}
+#content_header span{
+	margin-left: 19%;
+}
+#content_{
+	margin-left: 20%;
+	border: 2px solid #b3b3b3;
+	width: 650px;
+}
+#content_ h3{
+	text-align: center;
+}
+#content_ #c{
+	resize: none;
+	width: 100%;
+	height: 300px;
+}
+#content_ table{
+	position: relative;
+	left: 12%;
+	border-collapse:separate;
+	border-spacing: 55px 5px;
+}

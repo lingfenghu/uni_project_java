@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="cn.jmu.mapper.FlightProductMapper">
+ 	<resultMap id="FFP" type="cn.jmu.po.FlightAndFlightProduct">
+ 		<id column="flightProductID" property="flightProductID"></id>
+ 		<id column="flightID" property="flightID"></id>
+ 		<result column="seatNum" property="seatNum"></result>
+ 		<result column="prePrice" property="prePrice"></result>
+ 		<result column="prePointPrice" property="prePointPrice"></result>
+ 		<result column="rewardPoint" property="rewardPoint"></result>
+ 		<association property="flightProduct" javaType="cn.jmu.po.FlightProduct">
+ 			<id column="flightProductID" property="flightProductID"></id>
+ 			<result column="flightProductName" property="flightProductName"></result>
+ 		</association>
+ 	</resultMap>
+ 
+ 	<select id="getALLFlightProdcutByFlightID" resultType="cn.jmu.po.ExFlightProduct" parameterType="String">
+ 		select FFP.*,flightProduct.* from FFP,flightProduct where flightID=#{flightID}
+ 	</select>
+ 	
+ 	<select id="getRewardPoint" resultType="int" parameterType="String">
+ 		select rewardPoint from FFP where FFP.flightID=#{flightID} and FFP.flightProductID=#{flightProductID}
+ 	</select>
+ </mapper>

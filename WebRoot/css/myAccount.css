@@ -1,0 +1,96 @@
+@charset "UTF-8";
+html{
+	overflow-x: hidden;
+	overflow-y: hidden; 
+}
+body{
+    width: 100%;   
+    height: 100%;   
+    margin: 0;
+    background-color: #f3f3f3; 
+}
+#header{
+	width: 100%;
+	height: 10%;
+	padding: 5px 200px 0px;
+	background-color: white;
+}
+#header a img{
+	width: 300px;
+	height: 100%;
+}
+#header #personal{
+	position: relative;
+	left: 40%;
+	text-decoration: none;
+}
+#menubar{
+	width: 100%;
+	height: 10%;
+	background-color: white;
+	
+}
+div.dropdown{
+	position: relative;
+	display: inline-block;
+	left: 20%;
+}
+button.dropbt{
+	width:200px;
+	background-color: #ffffff;
+    color: blue;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+div.content{
+	display: none;
+    position: absolute;
+    background-color: #e4e4e4;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+div.content a{
+	
+	color: blue;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+div.dropdown:hover .content{
+	display: block;
+}
+div.dropdown:hover .dropbt{
+	background: #44a2ff;
+	color:white;
+}
+div.content a:hover{
+	color: #000000;
+	background-color:#ffffff;
+}
+#you{
+	margin-left: 30%;
+}
+form.center{
+	z-index: -1;
+	margin: 5% 30% 0px;	
+	width: 550px;
+	height: 300px;
+	border: 2px solid #bcbcbc;
+}
+form table{
+	border-collapse:separate;
+	border-spacing:5px 25px;
+}
+form #save{
+	position: relative;
+	top: 35px;
+	left: 200px;
+	width: 100px;
+	height: 30px;
+}
+div p{
+	padding-left: 37%;
+}

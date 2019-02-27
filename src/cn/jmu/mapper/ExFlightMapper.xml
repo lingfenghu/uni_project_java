@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="cn.jmu.mapper.ExFlightMapper">
+ 	<resultMap type="cn.jmu.po.ExFlight" id="ExFlightMap">
+ 		<id column="flightID" property="flightID"></id>
+ 		<id column="exFlightDate" property="exFlightDate"></id>
+ 		<result column="flightStateID" property="flightStateID"></result>
+ 		<result column="foodTypeID" property="foodTypeID"></result>
+ 		<result column="totalTime" property="totalTime"></result>
+ 		<result column="departTime" property="departTime"></result>
+ 		<result column="arriveTime" property="arriveTime"></result>
+ 		<result column="onRevise" property="onRevise"></result>
+ 		<result column="onRefund" property="onRefund"></result>
+ 		<association property="flight" javaType="cn.jmu.po.Flight">
+ 			<id column="flightID" property="flightID"></id>
+ 			<result column="preDepartTime" property="preDepartTime"></result>
+ 			<result column="preTotalTime" property="preTotalTime"></result>
+ 			<result column="flightType" property="flightType"></result>
+ 			<result column="totalSeatNum" property="totalSeatNum"></result>
+ 			<result column="departCity" property="departCity"></result>
+ 			<result column="arriveCity" property="arriveCity"></result>
+ 			<result column="insurancePrice" property="insurancePrice"></result>
+ 		</association>
+ 	</resultMap>
+ 	
+ 	<resultMap type="cn.jmu.po.ExFlight" id="ExFlightProductMap">
+ 		<id column="flightID" property="flightID"></id>
+ 		<id column="exFlightDate" property="exFlightDate"></id>
+ 		<result column="flightStateID" property="flightStateID"></result>
+ 		<result column="foodTypeID" property="foodTypeID"></result>
+ 		<result column="totalTime" property="totalTime"></result>
+ 		<result column="departTime" property="departTime"></result>
+ 		<result column="arriveTime" property="arriveTime"></result>
+ 		<result column="onRevise" property="onRevise"></result>
+ 		<result column="onRefund" property="onRefund"></result>
+ 		<association property="flight" javaType="cn.jmu.po.Flight">
+ 			<id column="flightID" property="flightID"></id>
+ 			<result column="preDepartTime" property="preDepartTime"></result>
+ 			<result column="preTotalTime" property="preTotalTime"></result>
+ 			<result column="flightType" property="flightType"></result>
+ 			<result column="totalSeatNum" property="totalSeatNum"></result>
+ 			<result column="departCity" property="departCity"></result>
+ 			<result column="arriveCity" property="arriveCity"></result>
+ 			<result column="insurancePrice" property="insurancePrice"></result>
+ 		</association>
+ 		<collection property="exFlightProduct" ofType="cn.jmu.po.ExFlightProduct">
+ 			<id column="flightID" property="flightID"></id>
+ 			<id column="exFlightDate" property="exFlightDate"></id>
+ 			<id column="flightProductID" property="flightProductID"></id>
+ 			<result column="price" property="price"></result>
+ 			<result column="pointPrice" property="pointPrice"></result>
+ 			<result column="leftTicketNum" property="leftTicketNum"></result>
+ 			<result column="onSale" property="onSale"></result>
+ 		</collection>
+ 	</resultMap>
+ 	
+ 	<resultMap type="cn.jmu.po.ExFlight" id="ExFlightAndExFlightStatetMap">
+ 		<id column="flightID" property="flightID"></id>
+ 		<id column="exFlightDate" property="exFlightDate"></id>
+ 		<result column="flightStateID" property="flightStateID"></result>
+ 		<result column="foodTypeID" property="foodTypeID"></result>
+ 		<result column="totalTime" property="totalTime"></result>
+ 		<result column="departTime" property="departTime"></result>
+ 		<result column="arriveTime" property="arriveTime"></result>
+ 		<result column="onRevise" property="onRevise"></result>
+ 		<result column="onRefund" property="onRefund"></result>
+ 		<association property="flight" javaType="cn.jmu.po.Flight">
+ 			<id column="flightID" property="flightID"></id>
+ 			<result column="preDepartTime" property="preDepartTime"></result>
+ 			<result column="preTotalTime" property="preTotalTime"></result>
+ 			<result column="flightType" property="flightType"></result>
+ 			<result column="totalSeatNum" property="totalSeatNum"></result>
+ 			<result column="departCity" property="departCity"></result>
+ 			<result column="arriveCity" property="arriveCity"></result>
+ 			<result column="insurancePrice" property="insurancePrice"></result>
+ 		</association>
+ 		<association property="flightState" javaType="cn.jmu.po.FlightState">
+ 			<id column="flightStateID" property="flightStateID"></id>
+ 			<result column="flightStateContext" property="flightStateContext"></result>
+ 		</association>
+ 	</resultMap>
+ 	<select id="getAllExFlight" resultMap="ExFlightMap">
+ 		select exFlight.*,flight.* from exFlight,Flight where exFlight.flightID=Flight.flightID
+ 	</select>
+	<select id="getExFlightByFlightID" resultMap="ExFlightMap" parameterType="String">
+ 		select exFlight.*,flight.* from exFlight,Flight where exFlight.flightID=Flight.flightID and exFlight.flightID =#{flightID}
+ 	</select>
+	<select id="getExFlightByFlightIDAndExFlghtDate" resultMap="ExFlightMap" parameterType="String">
+ 		select exFlight.*,flight.* from exFlight,Flight where exFlight.flightID=Flight.flightID and exFlight.flightID =#{flightID}
+ 		and exFlightDate=#{exFlightDate}
+ 	</select>
+	<update id="updateExFlight" parameterType="cn.jmu.po.ExFlight">
+		update ExFlight set flightID=#{flightID},exFlightDate=#{exFlightDate},flightStateID=#{flightStateID},
+		foodTypeID=#{foodTypeID},totalTime=#{totalTime},departTime=#{departTime},arriveTime=#{arriveTime},
+		onRevise=#{onRevise},onRefund=#{onRefund} where flightID=#{flightID} and exFlightDate=#{exFlightDate}
+	</update>
+	
+ 	 <select id="getAllExFlightAndFligtStateAndFlightByCityAndDate" parameterType="String" resultMap="ExFlightAndExFlightStatetMap">
+ 		select exFlight.*,flight.*, flightState.*
+ 		from exFlight,Flight,flightState where exFlight.flightID=Flight.flightID and exFlight.flightStateID=flightState.flightStateID
+ 		and exFlightDate=#{exFlightDate} and departCity = #{departCity} and arriveCity = #{arriveCity}
+ 	</select>
+ 	
+	<select id="getAllExFlightAndFlightProductByCityAndDate"  parameterType="String" resultMap="ExFlightProductMap">
+ 		select exFlight.*,flight.*,exFlightProduct.*
+ 		from exFlight,Flight,exFlightProduct where exFlight.flightID=Flight.flightID and exFlight.flightID=exFlightProduct.flightID
+ 		and ExFlight.exFlightDate=exFlightProduct.exFlightDate
+ 		and exFlight.exFlightDate=#{exFlightDate} and departCity = #{departCity} and arriveCity = #{arriveCity}
+ 	</select>
+ 	
+	<select id="getExFlightAndFlightStateAndFlightByDateaAndFlightID" parameterType="String" resultMap="ExFlightAndExFlightStatetMap">
+		select exFlight.*,flight.*, flightState.*
+ 		from exFlight,Flight,flightState where exFlight.flightID=Flight.flightID and exFlight.flightStateID=flightState.flightStateID
+ 		and exFlight.flightID=#{flightID} and exFlight.exFlightDate=#{exFlightDate}
+	</select>
+ </mapper>

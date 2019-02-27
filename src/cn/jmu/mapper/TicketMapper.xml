@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="cn.jmu.mapper.TicketMapper">
+ 	<select id="getAllTickeByAccount" resultType="cn.jmu.po.Ticket" parameterType="String">
+ 		select * from Ticket where account=#{account}
+ 	</select>
+ 	<insert	id="addTicket" parameterType="cn.jmu.po.Ticket">
+ 		insert into Ticket(account,orderID,ticketID,flightID,exFlightDate,flightProductID,passengerName,
+		passengerTel,passengerIDCard,insurance,payment,ticketPrice,passengerSex) values(#{account},#{orderID},#{ticketID},
+		#{flightID},#{exFlightDate},#{flightProductID},#{passengerName},#{passengerTel},#{passengerIDCard},#{insurance},
+		#{payment},#{ticketPrice},#{passengerSex})
+ 	</insert>
+ 	
+ </mapper>

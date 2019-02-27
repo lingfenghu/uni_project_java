@@ -1,0 +1,104 @@
+.container {
+	padding: 10px;
+	width: 980px;
+	margin: 50px auto;/*上下边距为50像素,左右自动扩展*/
+	border: 3px solid #77A7DD;/*颜色为蓝色的2像素实线*/
+}
+.entrance {
+	position: relative;
+	left: 40%;
+	text-decoration: none;
+}
+.top {
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	margin: auto;
+	height: auto;
+	width: 780px;
+}
+.banner {
+	background-image: url(../img/brand.png);
+	background-repeat: no-repeat;
+	height: 123px;
+	margin-top: 40px; /*网站标题距上边框40像素*/
+	text-align: center;
+}
+.content {
+	height: 600px;
+	width: 780px;
+	margin-top: 10px;
+	
+}
+.nav {
+	float: left;
+	width: 200px;
+}
+.nav ul {
+	padding: 5px;
+	border-top-width: 1px solid #EAEADA;
+	list-style-type: none;
+}
+.nav ul li {
+	border-bottom-width: 1px solid #EAEADA;
+	padding: 5px;
+}
+.nav ul li a {
+	font-size: 18px;
+	color: #554;
+	text-decoration: none;
+	display: block;
+	width: 95%;
+	padding-top: 8px 8px 8px 30px;
+}
+.nav ul li a:hover {
+	color: #77A7DD;
+	background-color: #F0F0EB;
+}
+
+.banner h1 {
+	margin-bottom: 10px;
+}
+.banner h1 a {
+	display: block; /*设a为块级元素*/
+	margin: auto; /*居中显示*/
+	width: 20%;
+	padding-bottom: 4px; /*下边框与字之间有4像素的间隔*/
+	border-bottom-width: 1px dashed #657382; /*下边框为蓝色虚线*/
+	color: #FFF;
+	text-decoration: none; /*取消下划线*/
+}
+.banner h1 a:hover {
+	color: #FFF;
+	border-bottom-width: 1px dashed #990000;/*鼠标经过链接下边框的颜色会改变*/
+}
+.bottom {
+	font-size: 15px;
+	font-weight: 700;
+	color: #666;
+	height: 15px;
+	margin-top: 10px;
+	padding-top: 10px 12px;
+}
+.b_right {
+	float: right;
+}
+.content_nr {
+	float: left;
+	border: 3px solid #77A7DD;/*颜色为蓝色的2像素实线*/
+	width: 548px;
+	height:540px;
+	padding: 30px 10px;
+}
+.content_nr h1 {
+	font-size: 20px;
+}
+.content_nr p {
+	font-size: 12px;
+	line-height: 22px;
+	color: #444;
+	text-indent: 20px;
+}
+.cl {
+	clear: both;
+}

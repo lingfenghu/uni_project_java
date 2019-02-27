@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="cn.jmu.mapper.UserMapper">
+ 	<resultMap type="cn.jmu.po.User" id="UserAndMember">
+ 		<id column="account" property="account"></id>
+ 		<result column="password" property="password"></result>
+ 		<result column="right" property="right"></result>
+ 		<result column="userName" property="userName"></result>
+ 		<result column="memberID" property="memberID"></result>
+ 		<result column="birthdate" property="birthdate"></result>
+ 		<result column="userIDCard" property="userIDCard"></result>
+ 		<result column="userTel" property="userTel"></result>
+ 		<result column="email" property="email"></result>
+ 		<result column="point" property="point"></result>
+ 		<result column="userSex" property="userSex"></result>
+ 		<association property="member" javaType="cn.jmu.po.Member">
+ 			<id column="memberID" property="memberID"></id>
+ 			<result column="memberName" property="memberName"></result>
+ 		</association>
+ 	</resultMap>
+ 	
+ 	<insert id="addUser" parameterType="cn.jmu.po.User" >
+ 		insert into Customer(account,memberID,password,[right],userName,birthdate,userIDCard,userTel,email,point,userSex) 
+ 		values(#{account},#{memberID},#{password},#{right},#{userName},#{birthdate},#{userIDCard},#{userTel},#{email},#{point},#{userSex})
+ 	</insert>
+ 	
+ 	<select id="getUserByAccount" parameterType="String" resultMap="UserAndMember">
+ 		select customer.*,member.* from customer,member where customer.account=#{account} and customer.memberID = member.memberID
+ 	</select>
+ 	
+ 	<update id="updateUser" parameterType="cn.jmu.po.User">
+ 		update customer set userSex=#{userSex},userTel=#{userTel},email=#{email},password=#{password},point=#{point}
+ 		where customer.account = #{account}
+ 	</update>
+ 	
+ 	<update id="payByPoint" parameterType="String">
+ 		update customer set point=#{point} where account=#{account}
+ 	</update>
+ </mapper>

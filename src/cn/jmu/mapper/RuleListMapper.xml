@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jmu.mapper.RuleListMapper">
+	<select id="getRule" resultType="cn.jmu.po.RuleList">
+		select * from RuleList where ruleID=1
+	</select>
+	<update id="updateRule" parameterType="cn.jmu.po.RuleList">
+		update RuleList set ruleContext=#{ruleContext},reviseTime=#{reviseTime} where ruleID=1
+	</update>
+</mapper>

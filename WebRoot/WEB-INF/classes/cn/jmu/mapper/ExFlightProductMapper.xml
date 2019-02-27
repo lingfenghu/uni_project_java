@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="cn.jmu.mapper.ExFlightProductMapper">
+ 	<resultMap type="cn.jmu.po.ExFlight" id="ExFlightProductMap">
+ 		<id column="flightID" property="flightID"></id>
+ 		<result column="exFlightDate" property="exFlightDate"></result>
+ 		<result column="flightProductID" property="flightProductID"></result>
+ 		<result column="price" property="price"></result>
+ 		<result column="pointPrice" property="pointPrice"></result>
+ 		<result column="leftTicketNum" property="leftTicketNum"></result>
+ 		<result column="onSale" property="onSale"></result>
+ 	<association property="FlightProduct" javaType="cn.jmu.po.FlightProduct">
+ 		<id column="flightProductID" property="flightProductID"></id>
+ 		<result column="flightProductName" property="flightProductName"></result>
+ 	</association>
+ 	</resultMap>
+	
+	<select id="getAllExFlightProduct" resultType="cn.jmu.po.ExFlightProduct">
+		select * from ExFlightProduct
+	</select>
+	
+	<select id="getExFlightProductByPK" parameterType="String" resultType="cn.jmu.po.ExFlightProduct">
+		select * from ExFlightProduct where flightID = #{flightID} and exFlightDate = #{exFlightDate} and flightProductID = #{flightProductID}
+	</select>
+	
+	<update id="updateExFlightProduct" parameterType="cn.jmu.po.ExFlightProduct">
+		update ExFlightProduct set price=#{price},pointPrice=#{pointPrice},leftTicketNum=#{leftTicketNum},onSale=#{onSale} where flightID=#{flightID} and
+		exFlightDate=#{exFlightDate} and flightProductID=#{flightProductID}
+	</update>
+	
+ 	<select id="getAllExFlightProductByFlightIDAndDate" resultMap="ExFlightProductMap" parameterType="String">
+ 		select flightProduct.*,exFlightProduct.* from exFlightProduct,FlightProduct
+ 		where exFlightProduct.flightProductID = FlightProduct.flightProductID and 
+ 		exFlightProduct.flightID = #{flightID} and exFlightProduct.exFlightDate = #{exFlightDate}
+ 	</select>
+ 	
+ 	<select id="getExFlightProductLeftTicket" resultType="int" parameterType="String">
+ 		select leftTicketNum from exFlightProduct where exFlightProduct.exFlightDate= #{exFlightDate} and
+ 		exFlightProduct.flightProductID=#{flightProductID} and exFlightProduct.flightID=#{flightID}
+ 	</select>
+ 	
+ 	<update id="updateExFlightProductTicket" parameterType="String">
+ 		update exFlightProduct set leftTicketNum = leftTicketNum - #{num} where flightProductID=#{flightProductID}
+ 		and exFlightDate=#{exFlightDate} and exFlightDate=#{exFlightDate}
+ 	</update>
+ </mapper>

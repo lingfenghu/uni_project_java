@@ -1,0 +1,10 @@
+@charset "UTF-8";
+#content h3{
+	text-align: center;
+}
+#content form{
+	text-align: center;
+}
+#content form input {
+	margin: -2px;
+}

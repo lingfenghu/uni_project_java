@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="cn.jmu.mapper.FlightMapper">
+ 	<select id="getFlightByID" parameterType="String" resultType="cn.jmu.po.Flight">
+ 		select *from Flight where flightID=#{flightID}
+ 	</select>
+ 	<select id="getAllFlight" resultType="cn.jmu.po.Flight">
+ 		select *from Flight 
+ 	</select>
+ 	
+ 	<update id="updateFlight" parameterType="cn.jmu.po.Flight">
+ 		update flight set flightID=#{flightID},preDepartTime=#{preDepartTime},preTotalTime=#{preTotalTime},
+ 		flightType=#{flightType},totalSeatNum=#{totalSeatNum},departCity=#{departCity},arriveCity=#{arriveCity},
+ 		insurancePrice=#{insurancePrice} where flightID=#{flightID}
+ 	</update>
+ 	<insert parameterType="cn.jmu.po.Flight" id="addFlight"> 
+ 		insert into Flight(flightID,preDepartTime,preTotalTime,flightType,totalSeatNum,departCity,arriveCity,insurancePrice) 
+ 		values(#{flightID},#{preDepartTime},#{preTotalTime},#{flightType},#{totalSeatNum},#{departCity},#{arriveCity},#{insurancePrice}) 
+ 	</insert>
+ </mapper>

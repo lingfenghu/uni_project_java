@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="cn.jmu.mapper.AccountMapper">
+ 	<select id="getAllAccount" resultType="cn.jmu.po.Account">
+ 		select * from Account
+ 	</select>
+ 	<select id="getAccountByAccount" resultType="cn.jmu.po.Account">
+ 		select * from account where account.account=#{account}
+ 	</select>
+ 	<insert id="addAccount" parameterType="cn.jmu.po.Account" >
+ 		insert into Account(account,password,[right]) values(#{account},#{password},#{right})
+ 	</insert>
+ 	
+ 	<update id="UpdateAccount" parameterType="cn.jmu.po.Account">
+ 		update account set password=#{password} where account.account=#{account}
+ 	</update>
+ </mapper>

@@ -1,0 +1,165 @@
+@charset "UTF-8";
+html{
+	overflow-x: hidden;
+	overflow-y: hidden; 
+}
+body{
+    width: 100%;   
+    height: 100%;   
+    margin: 0px;
+}
+#header{
+	width: 100%;
+	height: 10%;
+	padding: 5px 200px 0px;
+	background-color: white;
+}
+#header a img{
+	width: 300px;
+	height: 100%;
+}
+#header #personal{
+	position: relative;
+	left: 40%;
+	text-decoration: none;
+}
+#menubar{
+	width: 100%;
+	height: 10%;
+	margin: 0px;
+	padding: 0px;
+	background-color: white;
+}
+#menubar hr{
+	margin: 0px;
+}
+div.dropdown{
+	position: relative;
+	display: inline-block;
+	left: 20%;
+}
+button.dropbt{
+	width:200px;
+	background-color: #ffffff;
+    color: blue;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+div.content{
+	display: none;
+    position: absolute;
+    background-color: #e4e4e4;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+div.content a{
+	
+	color: blue;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+div.dropdown:hover .content{
+	display: block;
+}
+div.dropdown:hover .dropbt{
+	background: #44a2ff;
+	color:white;
+}
+div.content a:hover{
+	color: #000000;
+	background-color:#ffffff;
+}
+#middle{
+	width: 100%;
+	height: 100%;
+	padding: 5% 25% 12%;
+	background-image:url("../img/air.jpg");
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+#tabbar{
+	width: 70%;
+}
+#tabbar input{
+
+	height: 30px;
+	width: 35%;
+	height: 45px;
+	float: left;
+	cursor: pointer;
+	border: none;
+	text-align: center;
+	background-color: white;
+	border-bottom: 2px solid #aeaeae;
+}
+#tabbar #tab1{
+	background-color: #44a2ff;
+}
+#tabcontent{
+	width: 48.8%;
+	height: 250px;
+	border: 3px solid #ffffff;
+	background-color: none;
+	
+}
+.tab_content tr td{
+	width: 15%;
+}
+.tab_content input{
+	height: 30px;
+	width: 85%;
+}
+#tab1_content #ordeTicket{
+	float: right;
+	margin-top: 30px;
+	margin-right:35px;
+	width: 210px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: #ff8000;
+	cursor: pointer;
+}
+#tab2_content .queryFlight{
+	float: right;
+	margin-top: 30px;
+	margin-right:35px;
+	width: 210px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: #ff8000;
+	cursor: pointer;
+}
+#tabbar1{
+	margin-bottom: 20px;
+}
+#tab2_content #tabbar2{
+	margin-bottom: 18px;
+}
+#tabcontent #tab1_content{
+	display: block;
+}
+#tabcontent #tab2_content{
+	display: none;
+}
+#tab2_content_2 {
+	display: none;
+}
+#tabbar1 input{
+	cursor: pointer;
+	border: none;
+	color: #000000;
+	background: none;
+}
+#tabbar2 input{
+	cursor: pointer;
+	border: none;
+	color: #000000;
+	background: none;
+}
+div p{
+	text-align: center;
+}
