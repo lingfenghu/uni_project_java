@@ -6,6 +6,6 @@
 3.在eclipse或idea中打开项目，配置tomcat
 4.启动tomcat，访问主页http://localhost:8080/proj/index.jsp，登录密码，数据铺地文件有
 5.项目部分页面预览：
- ![主页](http://shuju.taobao.ali.com/images/web/tsj_main_dirc_img.png)
- ![后台管理](http://shuju.taobao.ali.com/images/web/tsj_main_dirc_img.png)
- ![登录](http://shuju.taobao.ali.com/images/web/tsj_main_dirc_img.png)
+ ![主页](https://github.com/lingfenghu/uni_project_java/raw/2.png)
+ ![后台管理](https://github.com/lingfenghu/uni_project_java/raw/4.png)
+ ![登录](https://github.com/lingfenghu/uni_project_java/raw/3.png)
