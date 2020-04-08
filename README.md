@@ -8,4 +8,4 @@
 5. 项目部分页面预览：
  ![主页](https://github.com/lingfenghu/uni_project_java/raw/master/raw/2.png)
  ![后台管理](https://github.com/lingfenghu/uni_project_java/raw/4.png)
- ![登录](https://github.com/lingfenghu/uni_project_java/raw/3.png)
+ ![登录](raw/3.png)
